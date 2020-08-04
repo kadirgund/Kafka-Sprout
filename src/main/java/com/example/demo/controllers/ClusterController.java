@@ -7,9 +7,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+<<<<<<< HEAD
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+=======
+>>>>>>> 8fce88631474d1dc018e1aa2a94f79d34e5fc36d
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
@@ -21,8 +24,12 @@ import com.example.demo.AdminService;
 import com.example.demo.StartBroker;
 import com.example.demo.StartZoo;
 import com.example.demo.Status;
+<<<<<<< HEAD
 import com.example.demo.CheckPath;
 
+=======
+//import org.springframework.web.servlet.view.RedirectView;
+>>>>>>> 8fce88631474d1dc018e1aa2a94f79d34e5fc36d
 
 @RestController
 public class ClusterController {
@@ -53,11 +60,6 @@ public class ClusterController {
   public Object describeBrokers() throws ExecutionException, InterruptedException {
     Map<String, Object> info = admin.describeTopicsAndBrokers();
     return info.get("Brokers");
-  }
-
-  @GetMapping("/metrics")
-  public Map<String, ArrayList> metrics() throws ExecutionException, InterruptedException {
-    return admin.metrics();
   }
 
   @PostMapping("/startBroker")

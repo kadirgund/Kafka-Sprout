@@ -6,6 +6,7 @@ import { ModalBackground } from '../UIComponents/StyledModal';
 import { RootDiv } from '../UIComponents/UIComponents';
 import Loader from 'react-loader-spinner';
 import constants from '../UIComponents/constants';
+import MetricsDisplay from './MetricsDisplay';
 
 const Main = (props) => {
   const [broker, setBroker] = useState(null);
@@ -38,16 +39,9 @@ const Main = (props) => {
     updateList().then(() => setIsLoaded(true));
   }, []);
 
-  // useEffect(() => {
-  //   const asyncUpdateList = async () => {
-  //     await updateList();
-  //   };
-  //   asyncUpdateList();
-  // }, [topic]);
-
-  console.log('NEW RENDER');
-  console.log('brokerdata', broker);
-  console.log('topicData', topic);
+  //console.log('NEW RENDER');
+  //console.log('brokerdata', broker);
+  //console.log('topicData', topic);
   if (isLoaded) {
     console.log('isLoaded');
     if (props.status === 'false') {
@@ -63,6 +57,7 @@ const Main = (props) => {
     } else {
       return (
         <RootDiv>
+          <MetricsDisplay />
           <BrokerDisplay
             brokerData={broker}
             updateBrokerList={updateBrokerList}
