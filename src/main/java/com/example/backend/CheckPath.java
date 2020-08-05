@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.backend;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

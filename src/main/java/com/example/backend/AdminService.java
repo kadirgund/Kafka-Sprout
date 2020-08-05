@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.backend;
 
 import org.apache.kafka.clients.admin.*;
 import org.apache.kafka.common.*;

@@ -1,10 +1,9 @@
-package com.example.demo.controllers;
+package com.example.backend.controllers;
 
-import java.util.ArrayList;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
-import com.example.demo.AdminService;
+import com.example.backend.AdminService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
