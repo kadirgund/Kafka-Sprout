@@ -5,7 +5,7 @@
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
     <version>2.3.1.RELEASE</version>
-    <relativePath />
+    <relativePath /> <!-- lookup parent from repository -->
   </parent>
   <groupId>com.example</groupId>
   <artifactId>demo</artifactId>
@@ -19,13 +19,10 @@
 
   <dependencies>
     <dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-websocket</artifactId>
-    </dependency>
-    <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-thymeleaf -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-thymeleaf</artifactId>
@@ -52,11 +49,6 @@
         </exclusion>
       </exclusions>
     </dependency>
-      <dependency>
-          <groupId>org.springframework</groupId>
-          <artifactId>spring-messaging</artifactId>
-          <version>5.2.8.RELEASE</version>
-      </dependency>
   </dependencies>
 
   <build>
@@ -65,6 +57,8 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
       </plugin>
+      <!-- EXTREMELY IMPORTANT FOR REACT TO LOAD -->
+      <!-- https://github.com/eirslett/frontend-maven-plugin -->
       <plugin>
         <groupId>com.github.eirslett</groupId>
         <artifactId>frontend-maven-plugin</artifactId>
@@ -72,6 +66,7 @@
         <configuration>
           <nodeVersion>v10.0.0</nodeVersion>
           <npmVersion>6.1.0</npmVersion>
+          <!-- working directory should be where the package.json and webpack.config.js are  -->
           <workingDirectory>src/main/js</workingDirectory>
         </configuration>
         <executions>
@@ -81,21 +76,22 @@
               <goal>install-node-and-npm</goal>
             </goals>
           </execution>
+          <!-- <execution> -->
+          <!-- <id>npm-install-if-needed</id>
+          <goals>
+            <goal>npm</goal>
+          </goals>
+          <configuration>
+            <arguments>run install-if-needed</arguments>
+          </configuration>
+        </execution> -->
           <execution>
             <id>Build frontend</id>
             <goals>
               <goal>npm</goal>
             </goals>
             <configuration>
-              <arguments>run build</arguments>
-            </configuration>
-          </execution>
-          <execution>
-            <id>Build frontend</id>
-            <goals>
-              <goal>npm</goal>
-            </goals>
-            <configuration>
+              <!-- make sure package.json has build script defined -->
               <arguments>run build</arguments>
             </configuration>
           </execution>

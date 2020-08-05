@@ -1,4 +1,4 @@
-package com.example.backend;
+package com.kafkasprout.backend;
 
 import org.apache.kafka.clients.admin.*;
 import org.apache.kafka.common.*;
